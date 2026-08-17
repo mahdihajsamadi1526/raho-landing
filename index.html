@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>راهو — همراهِ تازه‌واردهای فارسی‌زبان در آلمان</title>
+<meta name="description" content="مسیرهای گام‌به‌گام، متناسب با شهرت، دقیق و منبع‌دار — از ثبت آدرس تا اقامت.">
+<meta name="theme-color" content="#0C2C47">
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+<link rel="apple-touch-icon" href="assets/brand/app-icon.png">
+
+<!-- Open Graph / social (siteUrl is wired from config.js at runtime) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="راهو — همراهِ تازه‌واردهای فارسی‌زبان در آلمان">
+<meta property="og:description" content="مسیرهای گام‌به‌گام، متناسب با شهرت، دقیق و منبع‌دار — از ثبت آدرس تا اقامت.">
+<meta property="og:image" content="assets/brand/app-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- Reveal bootstrap (inline + self-contained on purpose) ---------------------
+     Adds `.js` to <html> so the hidden→reveal animation only ever arms when
+     scripting actually works, and runs the IntersectionObserver itself. Kept
+     inline (not in main.js) so the page can never render blank if main.js
+     fails to load: without this running, .reveal stays fully visible. -->
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add("js");
+  function arm() {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (e) { e.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (e) { io.observe(e); });
+    // Failsafe: never leave anything that's reached the viewport stuck hidden.
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.querySelectorAll(".reveal:not(.in)").forEach(function (e) {
+          if (e.getBoundingClientRect().top < window.innerHeight) e.classList.add("in");
+        });
+      }, 400);
+    });
+  }
+  if (document.readyState !== "loading") arm();
+  else document.addEventListener("DOMContentLoaded", arm);
+})();
+</script>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="#top" aria-label="راهو">
+      <img src="assets/brand/raho-mark.svg" alt="">
+      <span>راهو</span>
+    </a>
+    <nav>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#features">ویژگی‌ها</a></li>
+        <li><a href="#showcase">داخل اپ</a></li>
+        <li><a href="#cities">شهرها</a></li>
+        <li><a href="#why">چرا راهو</a></li>
+        <li><a href="#faq">سوالات</a></li>
+      </ul>
+    </nav>
+    <div class="nav__cta">
+      <a class="btn btn--ghost" href="#download">دریافت اپ</a>
+      <a class="btn btn--primary" href="#download">شروع کنید</a>
+      <button class="nav__toggle" id="navToggle" aria-label="منو" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero__motif" aria-hidden="true"></div>
+  <div class="container hero__grid">
+    <div class="hero__copy reveal">
+      <span class="eyebrow" style="color:var(--yellow);background:rgba(218,155,43,.14)">همراهِ تازه‌واردها در آلمان</span>
+      <h1>همراه شما، از همان <span class="accent">روز اول</span> در آلمان.</h1>
+      <p class="hero__sub">
+        راهو اطلاعات درست، متناسب با شرایط تو را گام‌به‌گام جلوی شما می‌گذارد — همان لحظه‌ای که لازمش دارید.
+        دیگر خبری از ساعت‌ها گشتن در تلگرام نیست. دیگر نگران اطلاعات غلط نیستید.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--on-dark" href="#download">شروع کنید — رایگان</a>
+        <a class="btn btn--ghost-dark" href="#features">ببینید چطور کار می‌کند</a>
+      </div>
+      <div class="hero__stores" id="heroStores">
+        <!-- store badges injected/wired by main.js from config -->
+        <a class="store-badge" data-store="apple" href="#download">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 1.6c.1 1-.3 2-.9 2.8-.7.8-1.7 1.4-2.7 1.3-.1-1 .4-2 .9-2.6.7-.8 1.8-1.4 2.7-1.5zM19.9 17c-.5 1.2-.8 1.7-1.5 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9s-2.3.9-3.7.9c-1.6 0-2.8-1.6-3.7-3C1 16.4.7 11.7 2.4 9.2 3.6 7.5 5.3 6.5 7 6.5c1.7 0 2.7.9 4.1.9 1.3 0 2.1-.9 4.1-.9 1.5 0 3 .8 4.1 2.2-3.6 2-3 7.1.6 8.3z"/></svg>
+          <span><span class="sb-small">دریافت از</span><span class="sb-big">App Store</span></span>
+        </a>
+        <a class="store-badge" data-store="google" href="#download">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 11.7l-2.6 2.6L3.6 2.3zM15 13.7l2.9 2.9-11.5 6.6L15 13.7zM18.9 9.5l2.6 1.5c1 .6 1 2 0 2.6l-2.6 1.5-3-3 3-2.6zM3.4 1.9 14.9 8.5 12 11.4 3.4 1.9z"/></svg>
+          <span><span class="sb-small">دریافت از</span><span class="sb-big">Google Play</span></span>
+        </a>
+      </div>
+      <p class="hero__note" id="heroNote"></p>
+    </div>
+
+    <div class="hero__visual reveal">
+      <div class="phone-wrap">
+        <div class="phone phone--float">
+          <div class="phone__screen" data-screen="home">
+            <!-- Swappable real-screenshot slot. Drop assets/screenshots/home.png
+                 (see NEEDS_YOU.md) and it covers the reconstruction below. Hidden
+                 by default; main.js reveals it only once the file actually loads,
+                 so a missing screenshot never shows a broken <img>. -->
+            <img class="phone__shot" src="assets/screenshots/home.png" alt="" aria-hidden="true">
+            <!-- Reconstructed HOME screen -->
+            <div class="appscreen" aria-hidden="true">
+              <div class="appscreen__status"><span>۹:۴۱</span><span>راهو</span></div>
+              <div class="appscreen__body">
+                <div class="as-hero">
+                  <img class="as-hero__mark" src="assets/brand/raho-mark-cream.svg" alt="">
+                  <div class="as-hero__greet">سلام، نیلوفر 👋</div>
+                  <div class="as-hero__day">روز ۱۲ در آلمان</div>
+                  <div class="as-hero__rt">نقشه‌ی راه شما</div>
+                  <div class="as-bar"><span style="width:42%"></span></div>
+                  <div class="as-hero__steps">۸ از ۱۹ قدم انجام شده</div>
+                </div>
+                <div class="as-label">ضروری (اداری)</div>
+                <div class="as-quest">
+                  <span class="as-quest__stripe"></span>
+                  <span class="as-quest__ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  </span>
+                  <div style="flex:1">
+                    <div class="as-quest__t">ثبت آدرس (Anmeldung)</div>
+                    <div class="as-quest__s">وقت گرفتن از Bürgeramt و مدارک لازم</div>
+                    <div class="as-bar" style="margin-top:6px"><span style="width:33%;background:var(--terracotta)"></span></div>
+                    <div class="as-quest__meta"><span>۱ از ۳ قدم</span><span>۳۳٪</span></div>
+                  </div>
+                </div>
+                <div class="as-quest">
+                  <span class="as-quest__stripe"></span>
+                  <span class="as-quest__ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/></svg>
+                  </span>
+                  <div style="flex:1">
+                    <div class="as-quest__t">بیمه درمانی</div>
+                    <div class="as-quest__s">انتخاب بیمه و ثبت‌نام آنلاین</div>
+                  </div>
+                </div>
+                <div class="as-label">پیشنهادی</div>
+                <div class="as-quest green">
+                  <span class="as-quest__stripe"></span>
+                  <span class="as-quest__ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>
+                  </span>
+                  <div style="flex:1">
+                    <div class="as-quest__t">حساب بانکی</div>
+                    <div class="as-quest__s">باز کردن حساب و کارت بانکی</div>
+                  </div>
+                </div>
+              </div>
+              <div class="appscreen__tabbar">
+                <i class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i>
+                <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M15 11a3 3 0 1 0-2-5"/><path d="M3 20a6 6 0 0 1 12 0M15 14a6 6 0 0 1 6 6"/></svg></i>
+                <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg></i>
+                <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>
+                <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST STRIP ===================== -->
+<section class="trust-strip">
+  <div class="container trust-strip__inner">
+    <div class="stat reveal"><div class="stat__num">۳۱</div><div class="stat__label">مسیر کاربردی</div></div>
+    <div class="stat reveal"><div class="stat__num">۸</div><div class="stat__label">شهر با اطلاعات اختصاصی</div></div>
+    <div class="stat reveal"><div class="stat__num">فارسی</div><div class="stat__label">با اصطلاح آلمانی کنارش</div></div>
+    <div class="stat reveal"><div class="stat__num">منبع‌دار</div><div class="stat__label">هر ادعا با مرجع رسمی</div></div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="features section-pad has-motif" id="features">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">آنچه راهو انجام می‌دهد</span>
+      <h2>هر کاری که در آلمان لازم دارید، کنار یک همراه مطمئن</h2>
+      <p class="lead">کارهای اداری آلمان پیچیده‌اند. راهو آن‌ها را به قدم‌های ساده، به‌ترتیب درست و متناسب با شرایط شما تبدیل می‌کند.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="fcard reveal">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 6h14M5 12h14M5 18h9"/><circle cx="3" cy="6" r="1" fill="currentColor"/><circle cx="3" cy="12" r="1" fill="currentColor"/><circle cx="3" cy="18" r="1" fill="currentColor"/></svg></div>
+        <h3>مسیرهای گام‌به‌گام</h3>
+        <p>۳۱ مسیر برای کارهای واقعی زندگی: از ثبت آدرس و بیمه درمانی تا اقامت و مالیات. هر مسیر به قدم‌های عملی شکسته شده.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>متناسب با شهر شما</h3>
+        <p>اطلاعات هر شهر جداست؛ از زمان انتظار ثبت آدرس (Anmeldung) در برلین تا آدرس ادارات در مونیخ. نه میانگین، بلکه واقعیت شهر شما.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z"/></svg></div>
+        <h3>بازبینی هوشمند</h3>
+        <p>هوش مصنوعی می‌بیند کجای مسیر هستید و قدم بعدی را پیشنهاد می‌دهد. هر پیشنهاد پیش از نمایش، یک‌بار بازبینی می‌شود.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>یادآور مهلت‌ها</h3>
+        <p>برای مهلت‌های مهم مثل تمدید اقامت یا اظهارنامه مالیاتی، به‌موقع و بدون مزاحمت خبردار می‌شوید.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-5.5A8 8 0 1 1 21 11.5z"/></svg></div>
+        <h3>پرسش و پاسخ</h3>
+        <p>سوال خود را بپرسید و پاسخ بازبینی‌شده و قابل‌اعتماد بگیرید — نه یک حدسِ نامطمئن از این گروه و آن گروه.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9S9.5 5.5 12 3z"/></svg></div>
+        <h3>ویژه‌ی فارسی‌زبان‌ها</h3>
+        <p>از آپوستیل و تعلیق TLS تهران تا تأیید مدرک و انتقال پول. جاهایی که راهنماهای عمومی ردشان می‌کنند.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SHOWCASE ===================== -->
+<section class="showcase section-pad has-motif" id="showcase">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">داخل اپ</span>
+      <h2>ساده، آرام و قابل‌اعتماد — درست مثل یک دوست بلد</h2>
+    </div>
+
+    <!-- Row 1 — Home / roadmap -->
+    <div class="show-row reveal">
+      <div class="show-row__copy">
+        <h2>نقشه‌ی راه شما، یک‌جا</h2>
+        <p>همه‌ی کارهای پیش‌رو در یک نگاه، به‌ترتیب درست. راهو می‌داند چند روز از ورودتان گذشته و خودش مهم‌ترین قدم بعدی را جلو می‌گذارد.</p>
+        <ul class="show-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> پیشرفت‌تان لحظه‌به‌لحظه دنبال می‌شود</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> کارهای فوری اداری از بقیه جدا می‌شوند</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> بدون رقابت، امتیاز و رکوردبازی</li>
+        </ul>
+      </div>
+      <div class="show-row__media">
+        <div class="phone phone--tilt">
+          <div class="phone__screen" data-screen="home">
+            <img class="phone__shot" src="assets/screenshots/home.png" alt="" aria-hidden="true">
+            <div class="appscreen" aria-hidden="true">
+              <div class="appscreen__status"><span>۹:۴۱</span><span>راهو</span></div>
+              <div class="appscreen__body">
+                <div class="as-hero">
+                  <img class="as-hero__mark" src="assets/brand/raho-mark-cream.svg" alt="">
+                  <div class="as-hero__greet">سلام، نیلوفر 👋</div>
+                  <div class="as-hero__day">روز ۱۲ در آلمان</div>
+                  <div class="as-hero__rt">نقشه‌ی راه شما</div>
+                  <div class="as-bar"><span style="width:42%"></span></div>
+                  <div class="as-hero__steps">۸ از ۱۹ قدم انجام شده</div>
+                </div>
+                <div class="as-label">ضروری (اداری)</div>
+                <div class="as-quest"><span class="as-quest__stripe"></span><span class="as-quest__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><div style="flex:1"><div class="as-quest__t">ثبت آدرس (Anmeldung)</div><div class="as-bar" style="margin-top:6px"><span style="width:33%"></span></div><div class="as-quest__meta"><span>۱ از ۳ قدم</span><span>۳۳٪</span></div></div></div>
+                <div class="as-quest green"><span class="as-quest__stripe"></span><span class="as-quest__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span><div style="flex:1"><div class="as-quest__t">حساب بانکی</div><div class="as-quest__s">باز کردن حساب و کارت</div></div></div>
+              </div>
+              <div class="appscreen__tabbar"><i class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 — City / journey detail -->
+    <div class="show-row flip reveal">
+      <div class="show-row__copy">
+        <h2>هر قدم، دقیق و منبع‌دار</h2>
+        <p>هیچ ادعایی بدون مرجع نیست. هر قدم با لینک رسمی، مدارک لازم و زمان واقعی همان شهر همراه است — تا با اطمینان جلو بروید.</p>
+        <ul class="show-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> لینک ادارات و فرم‌های رسمی</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> فهرست مدارک لازم برای هر کار</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> زمان انتظار واقعی شهر شما</li>
+        </ul>
+      </div>
+      <div class="show-row__media">
+        <div class="phone phone--tilt" style="transform:rotate(3deg)">
+          <div class="phone__screen" data-screen="journey">
+            <img class="phone__shot" src="assets/screenshots/journey.png" alt="" aria-hidden="true">
+            <div class="appscreen" aria-hidden="true">
+              <div class="appscreen__status"><span>۹:۴۱</span><span>برلین</span></div>
+              <div class="appscreen__body">
+                <div class="as-cityhead">
+                  <img src="assets/cities/berlin.webp" alt="برلین">
+                  <div class="as-cityhead__scrim"></div>
+                  <div class="as-cityhead__name"><b>برلین</b><span>اطلاعات اختصاصی شهر شما</span></div>
+                </div>
+                <span class="as-chip">زمان انتظار Anmeldung: ۶–۸ هفته</span>
+                <div class="as-label">قدم‌های ثبت آدرس</div>
+                <div class="as-quest"><span class="as-quest__stripe"></span><span class="as-quest__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span><div style="flex:1"><div class="as-quest__t">گرفتن وقت از Bürgeramt</div><div class="as-quest__s">آنلاین، از طریق پورتال شهر</div></div></div>
+                <div class="as-quest"><span class="as-quest__stripe"></span><span class="as-quest__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><div style="flex:1"><div class="as-quest__t">آماده‌کردن مدارک</div><div class="as-quest__s">پاسپورت، قرارداد اجاره، Wohnungsgeberbestätigung</div></div></div>
+                <div class="as-quest green"><span class="as-quest__stripe"></span><span class="as-quest__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><div style="flex:1"><div class="as-quest__t">مراجعه و گرفتن Meldebescheinigung</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 — Notifications -->
+    <div class="show-row reveal">
+      <div class="show-row__copy">
+        <h2>هیچ مهلتی را از دست ندهید</h2>
+        <p>راهو تاریخ‌های مهم شما را می‌شناسد و پیش از سررسید، به‌آرامی یادآوری می‌کند. نه پیام بی‌مورد؛ فقط چیزهایی که واقعاً مهم‌اند.</p>
+        <ul class="show-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> یادآوری تمدید اقامت و بیمه</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> اطلاع از تغییر قوانین مهم</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> اختیار کامل اعلان‌ها با شماست</li>
+        </ul>
+      </div>
+      <div class="show-row__media">
+        <div class="phone phone--tilt">
+          <div class="phone__screen" data-screen="notifications">
+            <img class="phone__shot" src="assets/screenshots/notifications.png" alt="" aria-hidden="true">
+            <div class="appscreen" aria-hidden="true">
+              <div class="appscreen__status"><span>۹:۴۱</span><span>اطلاعات</span></div>
+              <div class="appscreen__body">
+                <div class="as-label" style="margin-top:4px">اعلان‌ها</div>
+                <div class="as-notif"><span class="as-notif__dot"></span><div><div class="as-notif__t">یادآوری: تمدید اقامت</div><div class="as-notif__s">۳۰ روز تا پایان اعتبار Aufenthaltstitel شما</div><div class="as-notif__time">۲ ساعت پیش</div></div></div>
+                <div class="as-notif"><span class="as-notif__dot"></span><div><div class="as-notif__t">قدم بعدی شما آماده است</div><div class="as-notif__s">حالا وقت خوبی برای باز کردن حساب بانکی است</div><div class="as-notif__time">دیروز</div></div></div>
+                <div class="as-notif"><span class="as-notif__dot read"></span><div><div class="as-notif__t">به‌روزرسانی اطلاعات</div><div class="as-notif__s">قوانین بیمه درمانی دانشجویی به‌روز شد</div><div class="as-notif__time">۳ روز پیش</div></div></div>
+                <div class="as-notif"><span class="as-notif__dot read"></span><div><div class="as-notif__t">پاسخ سوال شما</div><div class="as-notif__s">پاسخ بازبینی‌شده به پرسش‌تان درباره‌ی Steuerklasse آماده شد</div><div class="as-notif__time">۵ روز پیش</div></div></div>
+              </div>
+              <div class="appscreen__tabbar"><i></i><i></i><i></i><i class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CITIES ===================== -->
+<section class="cities section-pad has-motif" id="cities">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">شهر به شهر</span>
+      <h2>اطلاعات اختصاصی برای شهری که در آن زندگی می‌کنید</h2>
+      <p class="lead">چون قوانین، زمان انتظار و ادارات در هر شهر فرق دارند.</p>
+    </div>
+    <div class="city-rail reveal">
+      <div class="city-card"><img src="assets/cities/berlin.webp" alt="برلین"><div class="city-card__scrim"></div><div class="city-card__name"><b>برلین</b><span>Berlin</span></div></div>
+      <div class="city-card"><img src="assets/cities/munich.webp" alt="مونیخ"><div class="city-card__scrim"></div><div class="city-card__name"><b>مونیخ</b><span>München</span></div></div>
+      <div class="city-card"><img src="assets/cities/hamburg.webp" alt="هامبورگ"><div class="city-card__scrim"></div><div class="city-card__name"><b>هامبورگ</b><span>Hamburg</span></div></div>
+      <div class="city-card"><img src="assets/cities/frankfurt.webp" alt="فرانکفورت"><div class="city-card__scrim"></div><div class="city-card__name"><b>فرانکفورت</b><span>Frankfurt</span></div></div>
+      <div class="city-card"><img src="assets/cities/cologne.webp" alt="کلن"><div class="city-card__scrim"></div><div class="city-card__name"><b>کلن</b><span>Köln</span></div></div>
+      <div class="city-card"><img src="assets/cities/stuttgart.webp" alt="اشتوتگارت"><div class="city-card__scrim"></div><div class="city-card__name"><b>اشتوتگارت</b><span>Stuttgart</span></div></div>
+      <div class="city-card"><img src="assets/cities/dusseldorf.webp" alt="دوسلدورف"><div class="city-card__scrim"></div><div class="city-card__name"><b>دوسلدورف</b><span>Düsseldorf</span></div></div>
+      <div class="city-card"><img src="assets/cities/leipzig.webp" alt="لایپزیش"><div class="city-card__scrim"></div><div class="city-card__name"><b>لایپزیش</b><span>Leipzig</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IRAN-SPECIFIC BAND ===================== -->
+<section class="band section-pad">
+  <div class="container band__grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--mint);background:rgba(171,203,202,.16)">چیزهایی که راهنماهای عمومی از قلم می‌اندازند</span>
+      <h2>ساخته‌شده برای فارسی‌زبان‌های تازه‌وارد — با همان جاهایی که راهنماهای عمومی از قلم می‌اندازند.</h2>
+      <p>راهنماهای عمومی مهاجرت، مسائل خاص کشور مبدأ را نمی‌بینند. راهو همان جاهای سخت و سرنوشت‌سازِ تو را پوشش می‌دهد.</p>
+    </div>
+    <div class="band-list reveal">
+      <div class="band-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> آپوستیل و مدارک ایران</div>
+      <div class="band-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> تعلیق TLS تهران</div>
+      <div class="band-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg> تأیید مدرک (Anabin)</div>
+      <div class="band-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> انتقال پول و تحریم‌ها</div>
+      <div class="band-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V5a2 2 0 0 1 2-2h9l7 4v14"/><path d="M9 21v-6h6v6"/></svg> آدرس و وقت سفارت</div>
+      <div class="band-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><path d="M9 10h6"/></svg> درمانگر فارسی‌زبان</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VALUES / WHY ===================== -->
+<section class="values section-pad has-motif" id="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow--mint eyebrow">چرا راهو</span>
+      <h2>همراه درستِ شش ماه اول</h2>
+      <p class="lead">در ماه‌های اول آلمان، چهار چیز می‌تواند خیلی فرق کند. راهو برای همین چهار چیز ساخته شده.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>مهلت‌ها را از دست نمی‌دهید</h3>
+        <p>ثبت آدرس (Anmeldung)، تمدید اقامت، اظهارنامه مالیاتی — یک روز تأخیر می‌تواند گران تمام شود. راهو قبل از سررسید، آرام یادآوری می‌کند.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>اطلاعات غلط سراغ‌تان نمی‌آید</h3>
+        <p>هر قدم یا لینک رسمی دارد یا با نشان «خودتان بررسی کنید» مشخص می‌شود. توصیه‌های تأییدنشده‌ی گروه‌های تلگرامی اینجا نیستند.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>اطلاعات شهر شما، نه یک میانگین</h3>
+        <p>زمان انتظار Anmeldung در برلین با مونیخ فرق دارد. آدرس و ساعت کاری ادارات هم همین‌طور. راهو اطلاعات را شهر به شهر جدا نگه می‌دارد.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-5.5A8 8 0 1 1 21 11.5z"/></svg></div>
+        <h3>تجربه‌ی جامعه، با منبع</h3>
+        <p>نکاتی که فقط کسی می‌داند که خودش همین مسیر را رفته — اما بازبینی‌شده و مستند، نه فقط یک توصیه در گروه.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq section-pad has-motif" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">سوالات متداول</span>
+      <h2>هر چه باید بدانید</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">آیا راهو رایگان است؟<span class="faq-q__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a__inner">بله. استفاده از مسیرهای اصلی راهو رایگان است. نمی‌خواهیم کسی در روزهای سخت اول، به‌خاطر پول از کمک محروم بماند.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">به چه زبانی است؟<span class="faq-q__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a__inner">راهو فارسی است. اما نام فرم‌ها و ادارات را به آلمانی هم نگه می‌دارد. این‌طور هنگام مراجعه‌ی حضوری دقیقاً می‌دانید دنبال چه هستید.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">اطلاعات چقدر قابل‌اعتماد است؟<span class="faq-q__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a__inner">هر ادعا یا به یک منبع رسمی لینک دارد یا با نشان روشن «خودتان بررسی کنید» مشخص می‌شود. ما هیچ مطلب تأییدنشده‌ای منتشر نمی‌کنیم و توصیه‌ی پزشکی، حقوقی یا مالی نمی‌دهیم.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">اطلاعات شخصی من محفوظ است؟<span class="faq-q__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a__inner">بله. راهو بر پایه‌ی مقررات حفاظت از داده‌ی اروپا (GDPR) ساخته شده. جزئیات کامل در <a id="faqPrivacy" href="#" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:700">سیاست حریم خصوصی</a> آمده است.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">چه شهرهایی پوشش داده می‌شوند؟<span class="faq-q__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a__inner">همین حالا ۸ شهر بزرگ اطلاعات اختصاصی دارند: برلین، مونیخ، هامبورگ، فرانکفورت، کلن، اشتوتگارت، دوسلدورف و لایپزیش. شهرهای بیشتری هم در راه‌اند.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA / WAITLIST ===================== -->
+<section class="cta-band section-pad" id="download">
+  <div class="cta-band__motif" aria-hidden="true"></div>
+  <div class="container cta-band__inner reveal">
+    <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.16)">به‌زودی</span>
+    <h2>اولین قدم‌تان را با راهو بردارید</h2>
+    <p>ایمیل‌تان را بگذارید. روز انتشار اپ، اولین نفری باشید که خبردار می‌شود.</p>
+    <form class="waitlist" id="waitlistForm" novalidate>
+      <input type="email" id="waitlistEmail" name="email" placeholder="you@example.com" autocomplete="email" required dir="ltr">
+      <button type="submit" class="btn btn--on-dark">به لیست انتظار بپیوندید</button>
+    </form>
+    <p class="waitlist-msg" id="waitlistMsg" role="status" aria-live="polite"></p>
+    <p class="waitlist-gdpr">با ثبت ایمیل، با <a id="gdprPrivacy" href="#" target="_blank" rel="noopener">سیاست حریم خصوصی</a> راهو موافقت می‌کنید. ایمیل شما فقط برای اطلاع‌رسانی درباره‌ی راهو استفاده می‌شود.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand"><img src="assets/brand/raho-mark-mono-dark.svg" alt=""><span>راهو</span></div>
+        <p>همراهِ تازه‌واردهای فارسی‌زبان در آلمان — اطلاعات دقیق، متناسب و گام‌به‌گام، درست در لحظه‌ای که نیاز دارید.</p>
+        <div class="footer__social" style="margin-top:var(--s-6)">
+          <a id="footInstagram" href="#" aria-label="اینستاگرام" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a id="footTelegram" href="#" aria-label="تلگرام" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 2.9 11.6c-.9.4-.9 1.6 0 1.9l4.8 1.5 1.8 5.7c.2.7 1.1.9 1.6.3l2.6-2.6 4.9 3.6c.6.4 1.5.1 1.7-.7l3-14.2c.2-1-.7-1.7-1.4-1.5z"/></svg></a>
+          <a id="footEmail" href="#" aria-label="ایمیل"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>راهو</h4>
+        <ul>
+          <li><a href="#features">ویژگی‌ها</a></li>
+          <li><a href="#showcase">داخل اپ</a></li>
+          <li><a href="#cities">شهرها</a></li>
+          <li><a href="#why">چرا راهو</a></li>
+          <li><a href="#faq">سوالات متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>قانونی</h4>
+        <ul>
+          <li><a id="linkPrivacy" href="#" target="_blank" rel="noopener">سیاست حریم خصوصی</a></li>
+          <li><a id="linkImpressum" href="#" target="_blank" rel="noopener">Impressum</a></li>
+          <li><a href="#download">دانلود اپ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> راهو · Raho. همه‌ی حقوق محفوظ است.</span>
+      <span>ساخته‌شده با ❤️ برای تازه‌واردهای فارسی‌زبان در آلمان</span>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="lib/classify-waitlist.js"></script>
+<script src="lib/waitlist-source.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

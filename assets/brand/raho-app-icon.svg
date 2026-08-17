@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Raho — app icon (full-bleed, canonical geometry per CLAUDE_CODE_FINAL.md)</title>
+  <desc>IDENTICAL geometry to raho-mark-cream.svg per the LOCKED brand spec. Only difference: the background rect has NO rx (no baked-in rounded corners). Modern launchers (iOS, Samsung One UI, Pixel, etc.) apply their own corner mask on top — baking rx=44 caused a "double squircle" gap on Samsung where the launcher's mask was wider than ours, exposing transparent L-shapes at the corners. Dot positions, sizes, opacities, and the donut hole are EXACTLY as the canonical raho-mark.svg dictates. Do not modify.</desc>
+  <defs>
+    <mask id="hApp"><rect width="200" height="200" fill="white"></rect><circle cx="150" cy="50" r="10" fill="black"></circle></mask>
+  </defs>
+  <rect width="200" height="200" fill="#BF512C"></rect>
+  <g mask="url(#hApp)" fill="#F4EDE1">
+    <circle cx="40" cy="160" r="7" opacity="0.3"></circle>
+    <circle cx="105" cy="146" r="11" opacity="0.5"></circle>
+    <circle cx="139" cy="105" r="16" opacity="0.75"></circle>
+    <circle cx="150" cy="50" r="26" opacity="1"></circle>
+  </g>
+</svg>

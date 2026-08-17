@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <pattern id="p" width="240" height="240" patternUnits="userSpaceOnUse">
+      <g fill="#BF512C">
+        <circle cx="20" cy="210" r="3" opacity="0.3"></circle>
+        <circle cx="58" cy="178" r="5" opacity="0.5"></circle>
+        <circle cx="92" cy="135" r="8" opacity="0.75"></circle>
+        <circle cx="105" cy="78" r="13" opacity="1"></circle>
+        <circle cx="170" cy="195" r="3" opacity="0.3"></circle>
+        <circle cx="200" cy="160" r="5" opacity="0.5"></circle>
+        <circle cx="218" cy="120" r="7" opacity="0.75"></circle>
+        <circle cx="225" cy="68" r="11" opacity="1"></circle>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#p)"></rect>
+</svg>

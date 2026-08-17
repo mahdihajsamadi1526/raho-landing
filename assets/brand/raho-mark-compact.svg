@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Raho mark — compact variant (use under 58px / notifications / favicons)</title>
+  <defs>
+    <mask id="rahoHoleCp">
+      <rect width="200" height="200" fill="white"></rect>
+      <circle cx="155" cy="55" r="17" fill="black"></circle>
+    </mask>
+  </defs>
+  <g mask="url(#rahoHoleCp)" fill="#BF512C">
+    <circle cx="45" cy="155" r="14" opacity="0.35"></circle>
+    <circle cx="108" cy="110" r="18" opacity="0.7"></circle>
+    <circle cx="155" cy="55" r="36"></circle>
+  </g>
+</svg>

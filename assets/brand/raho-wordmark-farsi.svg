@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" direction="rtl">
+  <title>Raho wordmark — farsi</title>
+  <defs>
+    <mask id="hF"><rect width="600" height="200" fill="white"></rect><circle cx="550" cy="50" r="10" fill="black"></circle></mask>
+  </defs>
+  <g mask="url(#hF)" fill="#BF512C">
+    <circle cx="440" cy="160" r="7" opacity="0.3"></circle>
+    <circle cx="505" cy="146" r="11" opacity="0.5"></circle>
+    <circle cx="539" cy="105" r="16" opacity="0.75"></circle>
+    <circle cx="550" cy="50" r="26" opacity="1"></circle>
+  </g>
+  <text x="370" y="130" text-anchor="end" font-family="Vazirmatn, sans-serif" font-weight="700" font-size="120" fill="#1A2332">راهو</text>
+</svg>

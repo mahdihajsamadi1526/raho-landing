@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <pattern id="p" width="240" height="240" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#0C2C47" stroke-width="0.5">
+        <path d="M-20 180 Q 60 140, 140 170 T 280 150"></path>
+        <path d="M-20 160 Q 60 110, 140 145 T 280 120"></path>
+        <path d="M-20 130 Q 70 80, 150 115 T 280 90"></path>
+        <path d="M-20 100 Q 80 60, 160 90 T 280 65"></path>
+        <path d="M-20 75 Q 90 45, 170 70 T 280 50"></path>
+        <path d="M-20 55 Q 100 35, 180 55 T 280 35"></path>
+        <path d="M-20 40 Q 110 30, 190 45 T 280 25"></path>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#p)"></rect>
+</svg>

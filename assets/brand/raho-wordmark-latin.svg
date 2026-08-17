@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <title>Raho wordmark — latin</title>
+  <defs>
+    <mask id="hW"><rect width="600" height="200" fill="white"></rect><circle cx="150" cy="50" r="10" fill="black"></circle></mask>
+  </defs>
+  <g mask="url(#hW)" fill="#BF512C">
+    <circle cx="40" cy="160" r="7" opacity="0.3"></circle>
+    <circle cx="105" cy="146" r="11" opacity="0.5"></circle>
+    <circle cx="139" cy="105" r="16" opacity="0.75"></circle>
+    <circle cx="150" cy="50" r="26" opacity="1"></circle>
+  </g>
+  <text x="230" y="130" font-family="Manrope, Inter, sans-serif" font-weight="800" font-size="128" letter-spacing="-2.5" fill="#1A2332">Raho</text>
+</svg>

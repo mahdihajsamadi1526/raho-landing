@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <pattern id="p" width="120" height="120" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#0C2C47" stroke-width="0.6">
+        <circle cx="60" cy="60" r="42"></circle>
+        <circle cx="60" cy="60" r="32"></circle>
+        <path d="M60 18 L66 60 L60 102 L54 60 Z" fill="#0C2C47" opacity="0.7"></path>
+        <path d="M18 60 L60 54 L102 60 L60 66 Z" fill="#0C2C47" opacity="0.3"></path>
+        <g stroke-width="0.4">
+          <line x1="60" y1="14" x2="60" y2="22"></line>
+          <line x1="60" y1="98" x2="60" y2="106"></line>
+          <line x1="14" y1="60" x2="22" y2="60"></line>
+          <line x1="98" y1="60" x2="106" y2="60"></line>
+          <line x1="30" y1="30" x2="35" y2="35"></line>
+          <line x1="90" y1="30" x2="85" y2="35"></line>
+          <line x1="30" y1="90" x2="35" y2="85"></line>
+          <line x1="90" y1="90" x2="85" y2="85"></line>
+        </g>
+        <text x="60" y="14" font-family="serif" font-size="8" fill="#0C2C47" text-anchor="middle">N</text>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#p)"></rect>
+</svg>

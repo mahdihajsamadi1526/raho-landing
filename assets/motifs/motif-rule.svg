@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <pattern id="p" width="120" height="120" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="120" y2="0" stroke="#0C2C47" stroke-width="2"></line>
+      <line x1="0" y1="6" x2="120" y2="6" stroke="#0C2C47" stroke-width="0.5"></line>
+      <line x1="0" y1="60" x2="120" y2="60" stroke="#0C2C47" stroke-width="0.5"></line>
+      <line x1="0" y1="66" x2="120" y2="66" stroke="#0C2C47" stroke-width="2"></line>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#p)"></rect>
+</svg>

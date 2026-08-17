@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <pattern id="p" width="120" height="120" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#0C2C47" stroke-width="0.4">
+        <path d="M0 60 Q 30 20, 60 60 T 120 60"></path>
+        <path d="M0 65 Q 30 25, 60 65 T 120 65"></path>
+        <path d="M0 70 Q 30 30, 60 70 T 120 70"></path>
+        <path d="M0 55 Q 30 95, 60 55 T 120 55"></path>
+        <path d="M0 50 Q 30 90, 60 50 T 120 50"></path>
+        <path d="M0 45 Q 30 85, 60 45 T 120 45"></path>
+        <circle cx="60" cy="60" r="35"></circle>
+        <circle cx="60" cy="60" r="32"></circle>
+        <circle cx="60" cy="60" r="29"></circle>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#p)"></rect>
+</svg>
