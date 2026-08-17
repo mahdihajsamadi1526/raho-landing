@@ -45,5 +45,5 @@ window.RAHO_CONFIG = {
   },
 
   // --- Site canonical domain (for <meta>/og) -----------------------------
-  siteUrl: "__SITE_URL__", // e.g. https://raho.app
+  siteUrl: "https://mahdihajsamadi1526.github.io/raho-landing/",
 };
